@@ -6,12 +6,15 @@ Instalacja Dockera na Windows 2019
 2. Instalacja Docker Engine
   Install-Package -Name docker -ProviderName DockerMsftProvider
 
-2a. Aktualizacja opja + przyszłość Install-Package -Name Docker -ProviderName DockerMsftProvider -Update -Force
-Start-Service Docker
+3. Aktualizacja opcja + przyszłość 
+  Install-Package -Name Docker -ProviderName DockerMsftProvider -Update -Force
 
-3. Restart
+4. Start serwisu Start-Service Docker
+
+5. Restart
   Restart-Computer -Force
 
-4. Weryfikacja
+6. Weryfikacja
   docker --version
   docker pull microsoft/dotnet-samples:dotnetapp-nanoserver-1809
+  docker run microsoft/dotnet-samples:dotnetapp-nanoserver-1809
