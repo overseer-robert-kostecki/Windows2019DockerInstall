@@ -18,3 +18,24 @@ Instalacja Dockera na Windows 2019
   docker --version
   docker pull microsoft/dotnet-samples:dotnetapp-nanoserver-1809
   docker run microsoft/dotnet-samples:dotnetapp-nanoserver-1809
+
+
+Uruchomienie kontenerów linuxowych
+1. Usunięcie Dockera CE
+  Uninstall-Package -Name docker -ProviderName DockerMSFTProvider
+2. Uruchomienie virtualizacji nestet 
+  WinContainerHost | Set-VMProcessor -ExposeVirtualizationExtensions $true
+3. Instalacja Dockera EE
+  Install-Module DockerProvider
+  Install-Package Docker -ProviderName DockerProvider -RequiredVersion preview
+4. Włączenie LinuxKit
+[Environment]::SetEnvironmentVariable("LCOW_SUPPORTED", "1", "Machine")
+
+5. Restart 
+Restart-Service docker
+
+6. Pull Debiana
+ docker run -it --rm ubuntu /bin/bash
+7. Na windowsy powrót
+[Environment]::SetEnvironmentVariable("LCOW_SUPPORTED", "$null", "Machine")
+
