@@ -24,10 +24,12 @@ Uruchomienie kontenerów linuxowych
 1. Usunięcie Dockera CE
   Uninstall-Package -Name docker -ProviderName DockerMSFTProvider
 2. Uruchomienie virtualizacji nestet 
-  WinContainerHost | Set-VMProcessor -ExposeVirtualizationExtensions $true
+  Get-VM WinContainerHost | Set-VMProcessor -ExposeVirtualizationExtensions $true
+
 3. Instalacja Dockera EE
   Install-Module DockerProvider
   Install-Package Docker -ProviderName DockerProvider -RequiredVersion preview
+  
 4. Włączenie LinuxKit
 [Environment]::SetEnvironmentVariable("LCOW_SUPPORTED", "1", "Machine")
 
