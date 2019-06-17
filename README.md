@@ -25,6 +25,10 @@ Uruchomienie kontenerów linuxowych
   Uninstall-Package -Name docker -ProviderName DockerMSFTProvider
 2. Uruchomienie virtualizacji nestet 
   Get-VM WinContainerHost | Set-VMProcessor -ExposeVirtualizationExtensions $true
+  #Get-Module -Name Hyper-V -ListAvailable
+  #Add-WindowsFeature -Name Hyper-V -IncludeManagementTools
+  #Add-WindowsFeature -Name RSAT-Hyper-V-Tools
+  #Add-WindowsFeature -Name Hyper-V-PowerShell
 
 3. Instalacja Dockera EE
   Install-Module DockerProvider
